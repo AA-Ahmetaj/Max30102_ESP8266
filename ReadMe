@@ -1,0 +1,12 @@
+This is a small scale project that incorporates the use of a DHT11 sensor, MAX30102 sensor, a Servo Motor and an ESP8266 for data transmission. It makes use of the 
+DFROBOT_MAX30102.h library, which can be found on the repository with the same name. The data is transmitted wirelessly and send to a google spreadsheet for vizualization. 
+On this repository you will find the ESP8266 code to be uploaded to the NodeMCU, and the JavaScript code used to get the data to the Google Spreadsheet. 
+In order to setup a Google Spreadsheet accordingly, open a Google Spreadsheet and name the first cells of the colons A-F as Date, Time, Temperature, Humidity, SPO2 and BPM respectively.
+Then go to "Extensions" and select "Apps Script" from the dropdown menu. Copy and paste "Spreadsheet_code.css" into the pop up window. On the line 8, update the sheet id with id 
+of your current spreadsheet. To get the sheet id, check you Goggle Spreadhsset link. For example, if your preadsheet link is 
+"https://docs.google.com/spreadsheets/d/13423135sdfdsfsd321ds354dsf12sdf/edit#gid=0" then your sheet id is "107th8XQ5M0CZQEtP5-WBznHtZDZ0X7juvxvB1yzb-BE".
+After you have done that, you select "Deploy", select "New Deployment" and give access to "Anyone". You confrim your deployment by hitting "Deploy" again and then your Deployment ID 
+will be generated. 
+Afterwards, you want to setup your NodeMCU. In order to do that copy and paste the "ESP8266.h" code into your Arduino IDE or a similar IDE. Make sure you have downloaded and selected 
+the right typr of Board. For this project I used the "NODE MCU 1.0 (ESP 12E Module"). In that code, update teh variable GAS_ID with the Deployment ID obtained earlier. Then provide
+the SSID and password to your current WiFi network on the respective lines. Upload the code to your NodeMCU and wire the circuit as mentioned on the code comments.
